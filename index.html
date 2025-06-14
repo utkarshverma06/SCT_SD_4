@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Data Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ Product Data Extractor</h1>
+            <p>Extract product information from e-commerce websites</p>
+        </header>
+
+        <div class="main-content">
+            <!-- URL Input Section -->
+            <div class="input-section">
+                <h2>Enter Website URL</h2>
+                <div class="url-input-group">
+                    <input type="url" id="website-url" placeholder="https://example-ecommerce.com" required>
+                    <button id="extract-btn" class="btn-primary">Extract Data</button>
+                </div>
+                <div class="demo-buttons">
+                    <button id="demo-btn" class="btn-secondary">Load Demo Data</button>
+                    <button id="clear-btn" class="btn-secondary">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Extracting product data...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="results-section hidden">
+                <h2>Extracted Products</h2>
+                <div class="results-header">
+                    <span id="product-count">0 products found</span>
+                    <div class="export-buttons">
+                        <button id="export-csv" class="btn-export">📄 Export CSV</button>
+                        <button id="export-json" class="btn-export">📋 Export JSON</button>
+                    </div>
+                </div>
+                
+                <!-- Filter and Search -->
+                <div class="filter-section">
+                    <input type="text" id="search-filter" placeholder="Search products...">
+                    <select id="sort-filter">
+                        <option value="">Sort by...</option>
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="price-asc">Price (Low to High)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                        <option value="rating-desc">Rating (High to Low)</option>
+                    </select>
+                </div>
+
+                <!-- Products Table -->
+                <div class="table-container">
+                    <table id="products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Rating</th>
+                                <th>Reviews</th>
+                                <th>Availability</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody">
+                            <!-- Products will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div id="error-section" class="error-section hidden">
+                <h3>⚠️ Error</h3>
+                <p id="error-message"></p>
+            </div>
+        </div>
+
+        <!-- Statistics Panel -->
+        <div id="stats-panel" class="stats-panel hidden">
+            <h3>📊 Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value" id="total-products">0</span>
+                    <span class="stat-label">Total Products</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="avg-price">$0</span>
+                    <span class="stat-label">Average Price</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="avg-rating">0</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="categories-count">0</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
